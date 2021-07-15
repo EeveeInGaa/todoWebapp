@@ -1,0 +1,123 @@
+/* general styling */
+
+/* *,
+*:before,
+*:after {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+html {
+  font-family: "Spartan", sans-serif;
+  font-size: 15px;
+  color: var;
+}
+
+
+body {
+    --header-color: #B0A1BA;
+    --background-color: #F5F1ED;
+    --text-color: #353231;
+    --border-color: #a07eb6;
+    --second-color: #BFF0D4; 
+    --dark-second-color: #96d5b1;
+}
+
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+_body * {
+    outline: 0.15rem solid firebrick;
+}
+
+main {
+    padding: 2rem;
+}
+
+fieldset {
+    padding: 0;
+    border: none;
+} */
+
+/* specific styling */
+
+/* header {
+    background-color: var(--header-color);
+    padding: 2rem 0rem 1.5rem 2rem ;
+    border-bottom: 0.3rem solid var(--border-color);
+}
+
+header * + * {
+    padding-top: 0.7rem;
+}
+
+main * + * {
+    padding-top: 1rem;
+}
+
+.todo-list * + * {
+    _border: 0.2rem solid var(--border-color);
+    _border-radius: 0.5rem;
+    margin-top: 1.5rem;
+}
+
+.todo-list {
+    padding-top: 3.5rem;
+} */
+
+
+/* button styling */
+
+
+/* .open-todos, .done-todos{
+    padding: 0.5rem 1rem;
+    margin-bottom: 1rem;
+    background-color: var(--second-color);
+    border: 0.2rem solid var(--dark-second-color);
+    border-radius: 0.5rem;
+    transition: 0.3s;
+}
+
+.open-todos:hover, .done-todos:hover {
+    background-color: var(--dark-second-color);
+}
+
+.open-todos:active, .done-todos:active {
+    background-color: var(--header-color);
+    border: 0.2rem solid var(--border-color);
+}
+
+.add-button {
+    padding: 0.5rem 1rem;
+    margin-left: 0.5rem;
+    background-color: var(--second-color);
+    border: 0.2rem solid var(--dark-second-color);
+    border-radius: 0.5rem;
+    transition: 0.3s;
+}
+
+.add-button:hover {
+    background-color: var(--dark-second-color);
+}
+
+.add-button:active {
+    background-color: var(--header-color);
+    border: 0.2rem solid var(--border-color);
+}
+
+button, input[type="text"] {
+    font-family: "Spartan", sans-serif;
+    color: var(--text-color);
+    padding: 0.5rem 1rem;
+    text-align: left;
+    border: 0.2rem solid var(--border-color);
+    border-radius: 0.5rem;
+} */
+
+
+
+/* .input[type="text"]::placeholder { 
+   
+}*/

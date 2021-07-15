@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>small Todo List</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Spartan:wght@300&display=swap"
+      rel="stylesheet"
+    />
+</head>
+<body>
+    <header>
+        <h1>What ToDo ...</h1>
+        <p>
+            <small> A small to-do list for everything you want.</small>
+        </p>
+    </header>
+    <main>
+        <article>
+            <fieldset>
+                <input class="radio-button" type="radio" id="all" name="choice" value="All">
+                <label for="all">All</label><br>
+                <input class="radio-button" type="radio" id="open" name="choice" value="Open">
+                <label for="open">Open</label><br>
+                <input class="radio-button" type="radio" id="done" name="choice" value="Done">
+                <label for="done">Done</label><br>
+            </fieldset>
+           <br>
+            <fieldset>
+                <button class="remove-done-todos">Remove all done ToDos</button>
+            </fieldset>
+            <br>
+            <fieldset>
+                <input type="text" id="input-todo" name="submit-todos" placeholder="What ToDo?">
+                <button id="add-button">Add it</button>
+            </fieldset>
+            <ul id="todo-list"></ul>
+        </article>
+    </main>
+</body>
+</html>
