@@ -126,3 +126,8 @@ button, input[type="text"] {
     list-style: none;
     padding-left: 0;
 }
+
+.checked {
+    text-decoration: line-through;
+    color: #555;
+}
