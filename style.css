@@ -121,3 +121,8 @@ button, input[type="text"] {
 /* .input[type="text"]::placeholder { 
    
 }*/
+
+#todo-list {
+    list-style: none;
+    padding-left: 0;
+}
