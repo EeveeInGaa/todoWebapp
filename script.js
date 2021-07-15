@@ -1,28 +1,25 @@
-//add todo to list using the 'add it' button
-
-//something is wrong, generates a checkbox no matter where i click
 const addButton = document.querySelector("#add-button");
-const ul = document.querySelector("#todo-list");
+addButton.addEventListener("click", addTodoToList);
+
+const listOfTodos = document.querySelector("#todo-list");
 let todoArr = [];
 
-
-
+//add todo to list using the 'add it' button
 function addTodoToList() {
-    console.log("add button wird angesprochen")
+    //create list element
     const createListElement = document.createElement("li");
-    ul.appendChild(createListElement);
+    listOfTodos.appendChild(createListElement);
     
-    const text = document.querySelector("#input-todo").value;
-    const textNode = document.createTextNode(text);
-
+    //create checkbox
     const checkbox = document.createElement("input");
     checkbox.type = "checkbox";
+    createListElement.appendChild(checkbox);
 
-    todoArr.push(text);
-
-    // createListElement.appendChild(checkbox);
+    //get user input in list and clear text after user input
+    const text = document.querySelector("#input-todo").value;
+    const textNode = document.createTextNode(text);
     createListElement.appendChild(textNode);
-    
+    todoArr.push(text);
+    document.querySelector("#input-todo").value = "";
+
 }
-addButton = addEventListener("click", addTodoToList);
-document.getElementById("add-button").addEventListener("click", function(event){event.preventDefault()});
