@@ -8,7 +8,7 @@ let todoArr = [];
 function addTodoToList() {
     //create list element
     const createListElement = document.createElement("li");
-    createListElement.classList.add("listElement");
+    createListElement.classList.add("list-element");
     listOfTodos.appendChild(createListElement);
     
     //create checkbox

@@ -4,14 +4,13 @@
 *:before,
 *:after {
   box-sizing: border-box;
-  margin: 0;
 }
 
 html {
     font-size: 15px;
 }
 
-html * {
+* {
     font-family: "Spartan", sans-serif;
 }
 
@@ -27,6 +26,7 @@ body {
 }
 
 body {
+    margin: 0;
     background-color: var(--background-color);
     color: var(--text-color);
 }
@@ -53,7 +53,7 @@ header {
     font-weight: bold;
 }
 
-header * + * {
+header > * + * {
     padding-top: 0.7rem;
 }
 
@@ -61,14 +61,8 @@ header h1 {
     text-shadow: 0.1rem 0.1rem var(--button-highlight-color), 0.2rem 0.2rem var(--focus-color);
 }
 
-main * + * {
+main > * + * {
     padding-top: 1rem;
-}
-
-.todo-list * + * {
-    _border: 0.2rem solid var(--border-color);
-    _border-radius: 0.5rem;
-    margin-top: 1.5rem;
 }
 
 .todo-list {
@@ -95,19 +89,27 @@ button, input[type="text"] {
 
 .radio-button {
     margin-top: 0.5rem;
+    all: unset;
+
 }
 
-/* still need to adjust */
+.radio-button, 
+.remove-done-todos, 
+#input-todo, 
+#add-button,
+.list-element {
+  border: 0.3rem solid transparent;
+}
+
 .radio-button:focus, 
 .remove-done-todos:focus, 
 #input-todo:focus, 
 #add-button:focus {
   border: 0.3rem solid var(--focus-color);
-  animation: none;
 }
 
 /* JS styling */
-/* still need to add styling */
+/* still need to add and fix styling */
 
 #todo-list {
     list-style: none;
@@ -117,4 +119,32 @@ button, input[type="text"] {
 .checked {
     text-decoration: line-through;
     color: #555;
+}
+
+.checkbox {
+    all: unset;
+    margin-right: 0.7rem;
+    margin-bottom: 1rem;
+    display: inline-block;
+    border: 0.15rem solid var(--border-color);
+    border-radius: 0.1rem;
+    width: 1rem;
+    height: 1rem;
+}
+
+.checkbox:checked {
+    background-color: var(--checkbox-color);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' aria-hidden='true' focusable='false' %3E%3Cpath fill='none' stroke='white' stroke-width='3' d='M1.73 12.91l6.37 6.37L22.79 4.59' /%3E%3C/svg%3E");
+}
+
+.list-element {
+    background-color: var(--box-highlight-color);
+    border-radius: 0.4rem;
+    padding: 1rem;
+    margin-bottom: 1rem;
+}
+
+.list-element:focus {
+    box-shadow: 0.2rem 0.2rem var(--header-color);
+    border: 0.3rem solid var(--focus-color);
 }
