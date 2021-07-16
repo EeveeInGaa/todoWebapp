@@ -4,8 +4,6 @@ addButton.addEventListener("click", addTodoToList);
 const listOfTodos = document.querySelector("#todo-list");
 let todoArr = [];
 
-const text = undefined;
-
 //add todo to list using the 'add it' button
 function addTodoToList() {
     //create list element
