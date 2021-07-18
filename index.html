@@ -22,26 +22,24 @@
     </header>
     <main>
         <article>
-            <h2>Filter and Options</h2>
-            <fieldset>
+            <section>
+                <h2>Filter and Options</h2>
                 <input class="radio-button" type="radio" id="all" name="choice" value="All">
                 <label for="all">All</label><br>
                 <input class="radio-button" type="radio" id="open" name="choice" value="Open">
                 <label for="open">Open</label><br>
                 <input class="radio-button" type="radio" id="done" name="choice" value="Done">
                 <label for="done">Done</label><br>
-            </fieldset>
-           <br>
-            <fieldset>
                 <button class="remove-done-todos">Remove all done ToDos</button>
-            </fieldset>
-            <br>
-            <fieldset>
+            </section>
+            <section>
                 <input type="text" id="input-todo" placeholder="What ToDo?">
                 <button id="add-button">Add</button>
-            </fieldset><br>
-            <h2>Your ToDos</h2>
-            <ul id="todo-list"></ul>
+            </section>
+            <section>
+                <h2>Your ToDos</h2>
+                <ul id="todo-list"></ul>
+            </section>
         </article>
     </main>
 </body>
