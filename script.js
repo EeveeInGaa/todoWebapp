@@ -25,6 +25,7 @@ function addTodoToList() {
     
     //create list element
     const createListElement = document.createElement("li");
+    createListElement.obj = newTodo;
     listOfTodos.appendChild(createListElement);
     
     //create checkbox
@@ -54,3 +55,10 @@ function addTodoToList() {
          }
      })
 }
+
+listOfTodos.addEventListener("change", function (e) {
+    const stateOfDone = e.target.checked;
+    const todoObj = e.target.parentElement.obj;
+    todoObj.done = stateOfDone;
+    console.log(todoArr);
+})
