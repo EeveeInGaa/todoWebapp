@@ -80,11 +80,23 @@ doneTodosFilter.addEventListener("click", function () {
     }
 });
 
-//filter for open todos --need to fix--
-const openTodosFilter = document.querySelector("#open");
-openTodosFilter.addEventListener("click", function () {
-    console.log("open wird angesprochen");
+//show all todos 
+const showAllTodos = document.querySelector("#all");
+showAllTodos.addEventListener("click", function () {
+    console.log("all wird angesprochen");
      for (let i = 0; i < listOfTodos.children.length; i++) {
          listOfTodos.children[i].hidden = false;
     }
+})
+
+//filter for open todos
+const openTodosFilter = document.querySelector("#open");
+openTodosFilter.addEventListener("click", function () {
+    console.log("open wird angesprochen");
+    for (let i = 0; i < listOfTodos.children.length; i++) {
+        const todoObj = listOfTodos.children[i].obj;
+      if(todoObj.done === true){
+          listOfTodos.children[i].hidden = true;
+       }
+   }
 })
