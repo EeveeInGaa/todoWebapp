@@ -1,7 +1,7 @@
 let todoArr = [];
 
 const addButton = document.querySelector("#add-button");
-const inputTodo = document.querySelector("#input-todo")
+const inputTodo = document.querySelector("#input-todo");
 const listOfTodos = document.querySelector("#todo-list");
 
 addButton.addEventListener("click", addTodoToList);
@@ -10,9 +10,17 @@ addButton.addEventListener("click", addTodoToList);
 function addTodoToList() {
     //get user input in list 
     const textInput = inputTodo.value;
+
+    //add only if todo has got at least 5 characters 
+    if(textInput.length < 5) {
+        console.log("please add at least 5 characters")
+        return;
+    } 
+
+    //create custom id for every todo
     const todoId = textInput.trim().toLowerCase().replaceAll(" ", "-");
     
-    // create object for state an push it
+    //create object for state an push it
     const newTodo = {
         description: textInput,
         done: false,
@@ -41,15 +49,6 @@ function addTodoToList() {
     label.appendChild(textNode);
     createListElement.appendChild(label);
     
-    //disable add button when there is no text in input field --need to fix--
-    if(inputTodo.value === " ") {
-        addButton.disabled = true;
-    }
-
-    /* if(inputTodo.length < 5) {
-        addButton.disabled = true;
-    } */
-    
     //strike todos when checkbox is checked
     checkbox.addEventListener("change", function() {
          if(createListElement.className != "checked") {
@@ -76,6 +75,8 @@ doneTodosFilter.addEventListener("click", function () {
          const todoObj = listOfTodos.children[i].obj;
        if(todoObj.done === false){
            listOfTodos.children[i].hidden = true;
+        } else {
+            //entgengesetztes nicht hidden 
         }
     }
 });
@@ -97,6 +98,8 @@ openTodosFilter.addEventListener("click", function () {
         const todoObj = listOfTodos.children[i].obj;
       if(todoObj.done === true){
           listOfTodos.children[i].hidden = true;
-       }
+       } else {
+        //entgengesetztes nicht hidden 
+    }
    }
 })
