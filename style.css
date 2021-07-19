@@ -89,15 +89,17 @@ button, input[type="text"] {
 
 .radio-button {
     margin-top: 0.5rem;
-    all: unset;
-
+    /* all: unset;
+    display: inline-block;
+    height: 1rem;
+    width: 1rem;
+    border: 0.3rem solid var(--border-color); */
 }
 
 .radio-button, 
 .remove-done-todos, 
 #input-todo, 
-#add-button,
-.list-element {
+#add-button {
   border: 0.3rem solid transparent;
 }
 
@@ -147,4 +149,9 @@ button, input[type="text"] {
 .list-element:focus {
     box-shadow: 0.2rem 0.2rem var(--header-color);
     border: 0.3rem solid var(--focus-color);
+}
+
+ul * {
+    border: 0.3rem solid transparent;
+
 }

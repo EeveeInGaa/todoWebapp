@@ -42,8 +42,8 @@ function addTodoToList() {
     createListElement.appendChild(label);
     
     //disable add button when there is no text in input field --need to fix--
-    if(inputTodo.length === 0) {
-        addButton.disabled;
+    if(inputTodo.value === " ") {
+        addButton.disabled = true;
     }
     
     //strike todos when checkbox is checked
@@ -56,9 +56,29 @@ function addTodoToList() {
      })
 }
 
+//edit State when checkbox is checked 
 listOfTodos.addEventListener("change", function (e) {
     const stateOfDone = e.target.checked;
     const todoObj = e.target.parentElement.obj;
     todoObj.done = stateOfDone;
     console.log(todoArr);
+})
+
+//filter for done todos --need to fix--
+const doneTodosFilter = document.querySelector("#done");
+doneTodosFilter.addEventListener("click", function () {
+    for (let i = 0; i < listOfTodos.children.length; i++) {
+        const todoObj = listOfTodos.children[i].obj;
+      if(todoObj.checked === false){
+          listOfTodos.children[i].hidden = true;
+       }
+    }
+})
+
+//filter for open todos --need to fix--
+const openTodosFilter = document.querySelector("#open");
+openTodosFilter.addEventListener("click", function () {
+    for (let i = 0; i < listOfTodos.children.length; i++) {
+        listOfTodos.children[i].hidden = false;
+    }
 })
