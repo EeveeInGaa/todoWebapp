@@ -151,7 +151,12 @@ button, input[type="text"] {
     border: 0.3rem solid var(--focus-color);
 }
 
-ul * {
+ul > * {
     border: 0.3rem solid transparent;
+
+}
+
+/* style checkboxes created by js */
+input[type = "checkbox"] {
 
 }

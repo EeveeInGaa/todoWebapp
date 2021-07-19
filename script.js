@@ -13,7 +13,7 @@ function addTodoToList() {
 
     //add only if todo has got at least 5 characters 
     if(textInput.length < 5) {
-        console.log("please add at least 5 characters")
+        console.log("please add at least 5 characters");
         return;
     } 
 
@@ -56,7 +56,7 @@ function addTodoToList() {
          } else {
              createListElement.className = "";
          }
-     })
+     });
 }
 
 //edit State when checkbox is checked 
@@ -65,41 +65,40 @@ listOfTodos.addEventListener("change", function (e) {
     const todoObj = e.target.parentElement.obj;
     todoObj.done = stateOfDone;
     console.log(todoArr);
-})
-
-//filter for done todos
-const doneTodosFilter = document.querySelector("#done");
-doneTodosFilter.addEventListener("click", function () {
-    console.log("done wird angesprochen");
-     for (let i = 0; i < listOfTodos.children.length; i++) {
-         const todoObj = listOfTodos.children[i].obj;
-       if(todoObj.done === false){
-           listOfTodos.children[i].hidden = true;
-        } else {
-            //entgengesetztes nicht hidden 
-        }
-    }
 });
 
 //show all todos 
 const showAllTodos = document.querySelector("#all");
 showAllTodos.addEventListener("click", function () {
-    console.log("all wird angesprochen");
-     for (let i = 0; i < listOfTodos.children.length; i++) {
-         listOfTodos.children[i].hidden = false;
+    for (let i = 0; i < listOfTodos.children.length; i++) {
+      listOfTodos.children[i].hidden = false;
     }
-})
+});
 
 //filter for open todos
 const openTodosFilter = document.querySelector("#open");
 openTodosFilter.addEventListener("click", function () {
-    console.log("open wird angesprochen");
     for (let i = 0; i < listOfTodos.children.length; i++) {
-        const todoObj = listOfTodos.children[i].obj;
-      if(todoObj.done === true){
+      const todoObj = listOfTodos.children[i].obj;
+      if(todoObj.done === true) {
           listOfTodos.children[i].hidden = true;
-       } else {
-        //entgengesetztes nicht hidden 
+        } else {
+           listOfTodos.children[i].hidden = false;
+           todoObj.done === false;
+        }
     }
-   }
-})
+});
+
+//filter for done todos
+const doneTodosFilter = document.querySelector("#done");
+doneTodosFilter.addEventListener("click", function () {
+    for (let i = 0; i < listOfTodos.children.length; i++) {
+      const todoObj = listOfTodos.children[i].obj;
+      if (todoObj.done === false) {
+            listOfTodos.children[i].hidden = true;
+        } else {
+           listOfTodos.children[i].hidden = false;
+           todoObj.done === true;
+        }
+    }
+});
