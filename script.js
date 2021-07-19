@@ -45,6 +45,10 @@ function addTodoToList() {
     if(inputTodo.value === " ") {
         addButton.disabled = true;
     }
+
+    /* if(inputTodo.length < 5) {
+        addButton.disabled = true;
+    } */
     
     //strike todos when checkbox is checked
     checkbox.addEventListener("change", function() {
@@ -64,21 +68,23 @@ listOfTodos.addEventListener("change", function (e) {
     console.log(todoArr);
 })
 
-//filter for done todos --need to fix--
+//filter for done todos
 const doneTodosFilter = document.querySelector("#done");
 doneTodosFilter.addEventListener("click", function () {
-    for (let i = 0; i < listOfTodos.children.length; i++) {
-        const todoObj = listOfTodos.children[i].obj;
-      if(todoObj.checked === false){
-          listOfTodos.children[i].hidden = true;
-       }
+    console.log("done wird angesprochen");
+     for (let i = 0; i < listOfTodos.children.length; i++) {
+         const todoObj = listOfTodos.children[i].obj;
+       if(todoObj.done === false){
+           listOfTodos.children[i].hidden = true;
+        }
     }
-})
+});
 
 //filter for open todos --need to fix--
 const openTodosFilter = document.querySelector("#open");
 openTodosFilter.addEventListener("click", function () {
-    for (let i = 0; i < listOfTodos.children.length; i++) {
-        listOfTodos.children[i].hidden = false;
+    console.log("open wird angesprochen");
+     for (let i = 0; i < listOfTodos.children.length; i++) {
+         listOfTodos.children[i].hidden = false;
     }
 })
