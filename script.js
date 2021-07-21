@@ -102,3 +102,22 @@ doneTodosFilter.addEventListener("click", function () {
         }
     }
 });
+getRestData();
+
+//GET data from API
+function getRestData() {
+    let requestOptions = {
+        method: 'GET',
+        redirect: 'follow'
+      };
+      
+    fetch("http://localhost:4730/todos", requestOptions)
+        .then((response) => response.json())
+        .then((data) => {
+            for(let i = 0; i < data.length; i++) {
+               console.log(todoArr);
+               //li erstellen 
+               //einhängen
+            }
+        });
+}
