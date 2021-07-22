@@ -18,15 +18,15 @@ function addTodoToList() {
     } 
 
     //create custom id for every todo
-    const todoId = textInput.trim().toLowerCase().replaceAll(" ", "-");
+    /* const todoId = textInput.trim().toLowerCase().replaceAll(" ", "-"); */
     
     //create object for state an push it
     const newTodo = {
         description: textInput,
         done: false,
-        todoID: todoId,
+        /* todoID: todoId, */
     };
-    todoArr.push(newTodo);
+    todoArr. push(newTodo);
 
     //clear text after user input
     inputTodo.value = "";
@@ -39,13 +39,13 @@ function addTodoToList() {
     //create checkbox
     const checkbox = document.createElement("input");
     checkbox.setAttribute("type", "checkbox");
-    checkbox.setAttribute("id", todoId);
+    /* checkbox.setAttribute("id", todoId); */
     createListElement.appendChild(checkbox);
     
     //create label for checkbox (to check when clicking on the label)
     const label = document.createElement("label");
     const textNode = document.createTextNode(textInput);
-    label.setAttribute("for", todoId);
+    /* label.setAttribute("for", todoId); */
     label.appendChild(textNode);
     createListElement.appendChild(label);
     
@@ -102,22 +102,44 @@ doneTodosFilter.addEventListener("click", function () {
         }
     }
 });
-getRestData();
+
+const urlApi = "http://localhost:4730/todos/"
+console.log(todoArr);
 
 //GET data from API
-function getRestData() {
+fetch(urlApi)
+    .then((response) => response.json())
+    .then((data) => {
+        todoArr = data;
+        console.log(todoArr);
+        addTodoToList();
+    });
+
+
+//POST data from API --creates no ID, need to fix!--
+function postRestData() {
+    let myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+    const textInput = inputTodo.value;
+    
+    const newTodo = {
+        description: textInput,
+        done: false,
+    };
+
     let requestOptions = {
-        method: 'GET',
-        redirect: 'follow'
-      };
-      
-    fetch("http://localhost:4730/todos", requestOptions)
-        .then((response) => response.json())
-        .then((data) => {
-            for(let i = 0; i < data.length; i++) {
-               console.log(todoArr);
-               //li erstellen 
-               //einhängen
-            }
+      method: 'POST',
+      headers: myHeaders,
+      body: JSON.stringify(newTodo),
+      redirect: 'follow'
+    };
+
+    fetch(urlApi, requestOptions)
+      .then(response => response.json())
+      .then((todoFromApi) => {
+          console.log(todoFromApi);
+          todoArr.push(todoFromApi);
+          addTodoToList();
         });
 }
+postRestData();
