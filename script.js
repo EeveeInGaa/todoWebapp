@@ -103,6 +103,19 @@ doneTodosFilter.addEventListener("click", function () {
   }
 });
 
+//remove done todos
+const removeDoneTodos = document.querySelector("#remove-done-todos");
+removeDoneTodos.addEventListener("click", function () {
+  console.log("remove");
+  for (let i = 0; i < listOfTodos.children.length; i++) {
+    const todoObj = listOfTodos.children[i].obj;
+    if (todoObj.done === true) {
+      listOfTodos.children[i].hidden = true;
+      todoArr.splice(1);
+    }
+  }
+});
+
 const urlApi = "http://localhost:4730/todos/";
 console.log(todoArr);
 
