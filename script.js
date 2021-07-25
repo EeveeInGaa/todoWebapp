@@ -142,3 +142,27 @@ function postRestData() {
     });
 }
 addButton.addEventListener("click", postRestData);
+
+//DELETE data from API
+function deleteRestData() {
+  let myHeaders = new Headers();
+  myHeaders.append("Content-Type", "application/json");
+  const textInput = inputTodo.value;
+
+  const newTodo = {
+    description: textInput,
+    done: false,
+  };
+
+  let requestOptions = {
+    method: "DELETE",
+    headers: myHeaders,
+    redirect: "follow",
+  };
+
+  fetch(urlApi + "/12", requestOptions)
+    .then((response) => response.json())
+    .then(() => {
+      console.log("ist gelöscht");
+    });
+}
